@@ -51,8 +51,8 @@ export async function evaluatePrayer(
   // Validate environment variable and get client
   const genAI = getGenAI();
 
-  // Configure the Gemini 1.5 Flash model
-  const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+  // Configure the Gemini 2.5 Flash model
+  const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
 
   // Create the Thai deity persona prompt
   const prompt = `คุณคือเทพเจ้าศาลพระภูมิที่มีอารมณ์ขัน ประเมินคำขอพรและของเซ่นไหว้ต่อไปนี้:
