@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
+import { cookies } from 'next/headers';
 
 /**
  * Home page - Root route that redirects based on authentication status
@@ -7,9 +8,21 @@ import { redirect } from 'next/navigation';
  * Validates: Requirements 1.3
  * - Authenticated users are redirected to /shrine
  * - Unauthenticated users are redirected to /login
+ * - Handles OAuth callback with code exchange
  */
-export default async function Home() {
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: { code?: string };
+}) {
   const supabase = createClient();
+
+  // If there's an auth code, exchange it for a session
+  if (searchParams.code) {
+    await supabase.auth.exchangeCodeForSession(searchParams.code);
+    // Redirect to shrine after successful authentication
+    redirect('/shrine');
+  }
 
   // Check if user is authenticated
   const {
