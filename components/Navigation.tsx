@@ -52,24 +52,25 @@ export default function Navigation() {
           <div className="flex-shrink-0">
             <Link
               href="/shrine"
-              className="text-2xl font-bold text-yellow-400 hover:text-yellow-300 transition-colors duration-200"
+              className="text-xl sm:text-2xl font-bold text-yellow-400 hover:text-yellow-300 transition-colors duration-200"
             >
-              ศาลพระภูมิศักดิ์สิทธิ์
+              <span className="hidden sm:inline">ศาลพระภูมิศักดิ์สิทธิ์</span>
+              <span className="sm:hidden">🙏 ศาลเจ้า</span>
             </Link>
           </div>
 
           {/* Navigation Links */}
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-2 sm:gap-6">
             <Link
               href="/shrine"
-              className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors duration-200 ${
+              className={`flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 rounded-lg transition-colors duration-200 text-sm sm:text-base ${
                 pathname === '/shrine'
                   ? 'bg-yellow-600 text-white'
                   : 'text-gray-300 hover:bg-gray-800 hover:text-white'
               }`}
             >
               <svg
-                className="w-5 h-5"
+                className="w-4 h-4 sm:w-5 sm:h-5"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -81,19 +82,19 @@ export default function Navigation() {
                   d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
                 />
               </svg>
-              <span>ศาลเจ้า</span>
+              <span className="hidden sm:inline">ศาลเจ้า</span>
             </Link>
 
             <Link
               href="/history"
-              className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors duration-200 ${
+              className={`flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 rounded-lg transition-colors duration-200 text-sm sm:text-base ${
                 pathname === '/history'
                   ? 'bg-yellow-600 text-white'
                   : 'text-gray-300 hover:bg-gray-800 hover:text-white'
               }`}
             >
               <svg
-                className="w-5 h-5"
+                className="w-4 h-4 sm:w-5 sm:h-5"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -105,7 +106,7 @@ export default function Navigation() {
                   d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
-              <span>ประวัติ</span>
+              <span className="hidden sm:inline">ประวัติ</span>
             </Link>
 
             <LogoutButton />
