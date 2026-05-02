@@ -145,6 +145,7 @@ export default function ImageUpload({
         {preview ? (
           // Image preview
           <div className="relative w-full h-full p-4">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={preview}
               alt="ตัวอย่างรูปภาพของเซ่นไหว้"

@@ -54,6 +54,7 @@ export default function PrayerHistoryList({ userId }: PrayerHistoryListProps) {
 
   useEffect(() => {
     fetchPrayers();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userId]);
 
   /**

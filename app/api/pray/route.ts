@@ -52,7 +52,7 @@ export async function POST(request: NextRequest) {
     let formData: FormData;
     try {
       formData = await request.formData();
-    } catch (error) {
+    } catch {
       return NextResponse.json<ApiResponse<never>>(
         {
           success: false,
@@ -120,7 +120,7 @@ export async function POST(request: NextRequest) {
     const buffer = Buffer.from(arrayBuffer);
 
     // Upload to Supabase Storage
-    const { data: uploadData, error: uploadError } = await supabase.storage
+    const { error: uploadError } = await supabase.storage
       .from('offerings')
       .upload(fileName, buffer, {
         contentType: offering.type,
