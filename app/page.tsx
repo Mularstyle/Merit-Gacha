@@ -18,9 +18,23 @@ export default async function Home({
 
   // If there's an auth code, exchange it for a session
   if (searchParams.code) {
-    await supabase.auth.exchangeCodeForSession(searchParams.code);
-    // Redirect to shrine after successful authentication
-    redirect('/shrine');
+    try {
+      const { data, error } = await supabase.auth.exchangeCodeForSession(searchParams.code);
+      
+      if (error) {
+        console.error('[Auth Error] Failed to exchange code:', error);
+        // If exchange fails, redirect to login
+        redirect('/login');
+      }
+      
+      if (data.session) {
+        // Successfully authenticated, redirect to shrine
+        redirect('/shrine');
+      }
+    } catch (error) {
+      console.error('[Auth Error] Exception during code exchange:', error);
+      redirect('/login');
+    }
   }
 
   // Check if user is authenticated
