@@ -42,9 +42,9 @@ export async function middleware(request: NextRequest) {
   const code = request.nextUrl.searchParams.get('code');
   const isAuthCallback = code !== null;
 
-  // If this is an auth callback on root path, allow it through
-  // The home page will handle the code exchange and redirect
-  if (isAuthCallback && request.nextUrl.pathname === '/') {
+  // If this is an auth callback, allow it through regardless of path
+  // Supabase will handle the code exchange automatically
+  if (isAuthCallback) {
     return supabaseResponse;
   }
 
