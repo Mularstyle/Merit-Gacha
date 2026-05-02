@@ -48,3 +48,5 @@ next-env.d.ts
 # Task summary files (development documentation)
 TASK-*.md
 *-SUMMARY.md
+
+.vercel
