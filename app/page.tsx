@@ -18,23 +18,15 @@ export default async function Home({
 
   // If there's an auth code, exchange it for a session
   if (searchParams.code) {
-    try {
-      const { data, error } = await supabase.auth.exchangeCodeForSession(searchParams.code);
-      
-      if (error) {
-        console.error('[Auth Error] Failed to exchange code:', error);
-        // If exchange fails, redirect to login
-        redirect('/login');
-      }
-      
-      if (data.session) {
-        // Successfully authenticated, redirect to shrine
-        redirect('/shrine');
-      }
-    } catch (error) {
-      console.error('[Auth Error] Exception during code exchange:', error);
+    const { error } = await supabase.auth.exchangeCodeForSession(searchParams.code);
+    
+    if (error) {
+      console.error('[Auth Error] Failed to exchange code:', error);
       redirect('/login');
     }
+    
+    // Successfully exchanged code, redirect to shrine
+    redirect('/shrine');
   }
 
   // Check if user is authenticated
