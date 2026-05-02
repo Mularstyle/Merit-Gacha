@@ -38,6 +38,10 @@ export async function middleware(request: NextRequest) {
     data: { session },
   } = await supabase.auth.getSession();
 
+  // Check if this is an auth callback (has code parameter)
+  const code = request.nextUrl.searchParams.get('code');
+  const isAuthCallback = code !== null;
+
   // Protected routes that require authentication
   const protectedRoutes = ['/shrine', '/history'];
   const isProtectedRoute = protectedRoutes.some((route) =>
@@ -54,6 +58,12 @@ export async function middleware(request: NextRequest) {
   if (request.nextUrl.pathname === '/login' && session) {
     const redirectUrl = new URL('/shrine', request.url);
     return NextResponse.redirect(redirectUrl);
+  }
+
+  // If this is an auth callback on root path, let the page handle it
+  // The home page will check session and redirect appropriately
+  if (isAuthCallback && request.nextUrl.pathname === '/') {
+    return supabaseResponse;
   }
 
   return supabaseResponse;
