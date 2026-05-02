@@ -228,9 +228,28 @@ Before deploying, you need to add environment variables. Click **"Environment Va
 2. Vercel will build and deploy your application (this takes 2-5 minutes)
 3. Once complete, you'll see a success message with your deployment URL
 
-### Step 6: Update Google OAuth Redirect URIs
+### Step 6: Update Supabase and Google OAuth Redirect URIs
 
-After deployment, you need to add your Vercel domain to Google OAuth:
+After deployment, you need to configure redirect URLs in both Supabase and Google OAuth:
+
+#### Update Supabase Redirect URLs
+
+1. Go to your Supabase project dashboard
+2. Navigate to **Authentication** → **URL Configuration**
+3. In the **Redirect URLs** section, add the following URLs (one per line):
+   ```
+   https://your-app.vercel.app/shrine
+   http://localhost:3000/shrine
+   ```
+   - Replace `your-app.vercel.app` with your actual Vercel domain
+   - The localhost URL is for local development
+4. In the **Site URL** field, set:
+   ```
+   https://your-app.vercel.app
+   ```
+5. Click **"Save"**
+
+#### Update Google OAuth Redirect URIs
 
 1. Go to [Google Cloud Console](https://console.cloud.google.com) → **APIs & Services** → **Credentials**
 2. Click on your OAuth 2.0 Client ID
@@ -238,11 +257,11 @@ After deployment, you need to add your Vercel domain to Google OAuth:
    ```
    https://YOUR_PROJECT_REF.supabase.co/auth/v1/callback
    ```
-4. Also add your Vercel domain for local testing:
-   ```
-   https://your-app.vercel.app
-   ```
-5. Click **"Save"**
+   - Replace `YOUR_PROJECT_REF` with your Supabase project reference ID
+   - You can find this in Supabase under **Settings** → **General** → **Reference ID**
+4. Click **"Save"**
+
+⚠️ **Important**: Without these redirect URLs configured correctly, users will experience login redirect loops.
 
 ---
 
@@ -367,10 +386,15 @@ After deployment, verify that everything is working correctly:
 **Symptoms**: After Google login, you're redirected back to login page repeatedly
 
 **Solutions**:
-1. Verify Google OAuth redirect URI matches your Supabase project URL exactly
-2. Check that Google OAuth is enabled in Supabase Authentication settings
-3. Verify Client ID and Client Secret are correct in Supabase
-4. Clear browser cookies and try again
+1. **Verify Supabase Redirect URLs**: Go to Supabase → **Authentication** → **URL Configuration** and ensure these URLs are added:
+   - `https://your-app.vercel.app/shrine`
+   - `http://localhost:3000/shrine` (for local development)
+2. **Verify Site URL**: In the same section, ensure **Site URL** is set to `https://your-app.vercel.app`
+3. Verify Google OAuth redirect URI matches your Supabase project URL exactly: `https://YOUR_PROJECT_REF.supabase.co/auth/v1/callback`
+4. Check that Google OAuth is enabled in Supabase Authentication settings
+5. Verify Client ID and Client Secret are correct in Supabase
+6. Clear browser cookies and try again
+7. Check browser console for any error messages during redirect
 
 #### Issue: "Failed to Upload Image" Error
 

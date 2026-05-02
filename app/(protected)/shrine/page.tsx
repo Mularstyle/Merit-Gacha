@@ -6,25 +6,8 @@ import ShrineClient from './ShrineClient';
  * Shrine page - Main prayer interface
  * This is a protected route that requires authentication
  */
-export default async function ShrinePage({
-  searchParams,
-}: {
-  searchParams: { code?: string };
-}) {
+export default async function ShrinePage() {
   const supabase = createClient();
-
-  // If there's an auth code, exchange it for a session
-  if (searchParams.code) {
-    const { error } = await supabase.auth.exchangeCodeForSession(searchParams.code);
-    
-    if (error) {
-      console.error('[Auth Error] Failed to exchange code:', error);
-      redirect('/login');
-    }
-    
-    // Successfully exchanged code, redirect to clean URL (remove code param)
-    redirect('/shrine');
-  }
 
   // Get the current user session
   const {
