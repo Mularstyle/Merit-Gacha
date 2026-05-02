@@ -35,12 +35,18 @@ export async function middleware(request: NextRequest) {
 
   // Refresh session if expired - required for Server Components
   const {
-    data: { session },
-  } = await supabase.auth.getSession();
+    data: { user },
+  } = await supabase.auth.getUser();
 
   // Check if this is an auth callback (has code parameter)
   const code = request.nextUrl.searchParams.get('code');
   const isAuthCallback = code !== null;
+
+  // If this is an auth callback on root path, allow it through
+  // The home page will handle the code exchange and redirect
+  if (isAuthCallback && request.nextUrl.pathname === '/') {
+    return supabaseResponse;
+  }
 
   // Protected routes that require authentication
   const protectedRoutes = ['/shrine', '/history'];
@@ -48,22 +54,16 @@ export async function middleware(request: NextRequest) {
     request.nextUrl.pathname.startsWith(route)
   );
 
-  // Redirect to login if accessing protected route without session
-  if (isProtectedRoute && !session) {
+  // Redirect to login if accessing protected route without user
+  if (isProtectedRoute && !user) {
     const redirectUrl = new URL('/login', request.url);
     return NextResponse.redirect(redirectUrl);
   }
 
-  // Redirect to shrine if accessing login with active session
-  if (request.nextUrl.pathname === '/login' && session) {
+  // Redirect to shrine if accessing login with active user
+  if (request.nextUrl.pathname === '/login' && user) {
     const redirectUrl = new URL('/shrine', request.url);
     return NextResponse.redirect(redirectUrl);
-  }
-
-  // If this is an auth callback on root path, let the page handle it
-  // The home page will check session and redirect appropriately
-  if (isAuthCallback && request.nextUrl.pathname === '/') {
-    return supabaseResponse;
   }
 
   return supabaseResponse;
