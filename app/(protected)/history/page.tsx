@@ -1,6 +1,5 @@
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
-import LogoutButton from '@/components/LogoutButton';
 import PrayerHistoryList from '@/components/PrayerHistoryList';
 
 /**
@@ -24,12 +23,11 @@ export default async function HistoryPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-black p-8">
       <div className="max-w-6xl mx-auto">
-        {/* Header with logout button */}
-        <div className="flex justify-between items-center mb-8">
+        {/* Header */}
+        <div className="mb-8">
           <h1 className="text-4xl font-bold text-yellow-400">
             ประวัติคำขอพร
           </h1>
-          <LogoutButton />
         </div>
         
         {/* Prayer history list */}
