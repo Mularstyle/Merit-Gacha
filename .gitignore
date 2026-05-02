@@ -34,3 +34,17 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Kiro AI
+.kiro/
+*.kiro
+.vibe/
+*.vibe
+
+# Agent files
+.agent/
+*.agent
+
+# Task summary files (development documentation)
+TASK-*.md
+*-SUMMARY.md
