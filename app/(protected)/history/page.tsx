@@ -1,6 +1,7 @@
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import PrayerHistoryList from '@/components/PrayerHistoryList';
+import EasterEggButton from './EasterEggButton';
 
 /**
  * History page - View past prayers
@@ -23,11 +24,12 @@ export default async function HistoryPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-black p-8">
       <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="mb-8">
+        {/* Header with Easter Egg Button */}
+        <div className="mb-8 flex items-center justify-between">
           <h1 className="text-4xl font-bold text-yellow-400">
             ประวัติคำขอพร
           </h1>
+          <EasterEggButton />
         </div>
         
         {/* Prayer history list */}
