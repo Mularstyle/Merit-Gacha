@@ -127,7 +127,7 @@ export default function ShrineClient() {
               />
             </div>
           ) : (
-            // NORMAL MODE - Simple Layout
+            // NORMAL MODE - Simple Layout with Frame
             <div className="max-w-2xl mx-auto">
               {/* Header */}
               <div className="text-center mb-8">
@@ -140,11 +140,13 @@ export default function ShrineClient() {
                 </p>
               </div>
 
-              {/* Prayer Form */}
-              <PrayerForm
-                onSubmitSuccess={handleSubmitSuccess}
-                onSubmitError={handleSubmitError}
-              />
+              {/* Prayer Form with Frame */}
+              <div className="bg-gray-900/80 backdrop-blur-sm rounded-xl p-8 border border-yellow-600/30 shadow-2xl shadow-yellow-500/10">
+                <PrayerForm
+                  onSubmitSuccess={handleSubmitSuccess}
+                  onSubmitError={handleSubmitError}
+                />
+              </div>
 
               {/* Error Display */}
               {error && (
