@@ -46,41 +46,47 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-900 via-gray-800 to-black">
+    <div className="min-h-screen flex items-center justify-center bg-black bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-yellow-950/40 via-black to-black text-yellow-50">
       <div className="max-w-md w-full mx-4">
         {/* Shrine Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-yellow-400 mb-2">
+        <div className="text-center mb-12">
+          <h1 className="font-['Charm'] text-5xl font-bold bg-gradient-to-b from-yellow-200 via-yellow-500 to-yellow-700 bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(234,179,8,0.5)] pr-4 pb-2 pt-4 leading-relaxed mb-3">
             ศาลพระภูมิศักดิ์สิทธิ์
           </h1>
-          <p className="text-gray-300 text-lg">
+          <p className="text-yellow-400 text-xl font-['Charm'] mb-2">
             Merit Gacha
           </p>
-          <p className="text-gray-400 text-sm mt-2">
+          <p className="text-yellow-100/70 text-base">
             จงเข้ามาขอพรจากเจ้าที่ผู้ทรงอารมณ์ขัน
           </p>
         </div>
 
-        {/* Login Card */}
-        <div className="bg-gray-800 rounded-lg shadow-2xl p-8 border border-gray-700">
+        {/* Login Card - Altar Base Style */}
+        <div className="bg-black/60 backdrop-blur-lg border-x-4 border-y-2 border-double border-yellow-600/80 rounded-none shadow-[inset_0_0_50px_rgba(161,98,7,0.3)] p-8 relative">
+          {/* Corner Ornaments */}
+          <div className="w-3 h-3 bg-gradient-to-br from-yellow-400 to-yellow-700 absolute -top-1 -left-1"></div>
+          <div className="w-3 h-3 bg-gradient-to-bl from-yellow-400 to-yellow-700 absolute -top-1 -right-1"></div>
+          <div className="w-3 h-3 bg-gradient-to-tr from-yellow-400 to-yellow-700 absolute -bottom-1 -left-1"></div>
+          <div className="w-3 h-3 bg-gradient-to-tl from-yellow-400 to-yellow-700 absolute -bottom-1 -right-1"></div>
+          
           <div className="text-center mb-6">
             <img 
               src="/logo.svg" 
               alt="Logo" 
-              className="w-20 h-20 mx-auto mb-4"
+              className="w-20 h-20 mx-auto mb-4 drop-shadow-[0_0_15px_rgba(234,179,8,0.5)] animate-pulse"
             />
-            <h2 className="text-2xl font-semibold text-gray-100 mb-2">
+            <h2 className="text-2xl font-semibold text-yellow-400 mb-2 font-['Charm']">
               เข้าสู่ระบบ
             </h2>
-            <p className="text-gray-400 text-sm">
+            <p className="text-yellow-100/70 text-sm">
               เข้าสู่ระบบเพื่อเริ่มขอพรและดูประวัติคำขอของคุณ
             </p>
           </div>
 
           {/* Error Message */}
           {error && (
-            <div className="mb-4 p-3 bg-red-900/50 border border-red-700 rounded-md text-red-200 text-sm">
-              {error}
+            <div className="mb-4 p-3 bg-red-900/40 backdrop-blur-sm border-2 border-red-500/60 rounded-none shadow-[0_0_20px_rgba(239,68,68,0.2)]">
+              <p className="text-red-200 text-sm font-['Charm']">{error}</p>
             </div>
           )}
 
@@ -88,11 +94,11 @@ export default function LoginPage() {
           <button
             onClick={handleGoogleLogin}
             disabled={isLoading}
-            className="w-full flex items-center justify-center gap-3 bg-white hover:bg-gray-100 text-gray-900 font-semibold py-3 px-4 rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full flex items-center justify-center gap-3 bg-gradient-to-r from-yellow-900 via-yellow-700 to-yellow-900 border-2 border-yellow-500 text-yellow-50 hover:from-yellow-700 hover:via-yellow-500 hover:to-yellow-700 hover:shadow-[0_0_20px_rgba(234,179,8,0.6)] font-semibold py-3 px-4 rounded-none transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isLoading ? (
               <>
-                <div className="w-5 h-5 border-2 border-gray-900 border-t-transparent rounded-full animate-spin" />
+                <div className="w-5 h-5 border-2 border-yellow-200 border-t-transparent rounded-full animate-spin" />
                 <span>กำลังเข้าสู่ระบบ...</span>
               </>
             ) : (
@@ -120,13 +126,13 @@ export default function LoginPage() {
             )}
           </button>
 
-          <p className="text-gray-500 text-xs text-center mt-4">
+          <p className="text-yellow-700/70 text-xs text-center mt-4">
             การเข้าสู่ระบบหมายความว่าคุณยอมรับเงื่อนไขการใช้งาน
           </p>
         </div>
 
         {/* Footer */}
-        <div className="text-center mt-6 text-gray-500 text-sm">
+        <div className="text-center mt-6 text-yellow-700/70 text-sm">
           <p>สร้างด้วยความเคารพต่อวัฒนธรรมไทย 🇹🇭</p>
         </div>
       </div>
