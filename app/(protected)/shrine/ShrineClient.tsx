@@ -7,7 +7,7 @@ import { EvaluationResult } from '@/lib/types';
 
 /**
  * Shrine page client component
- * Handles prayer submission and result display
+ * Handles prayer submission and result display with 3-piece shrine frame
  */
 export default function ShrineClient() {
   const [result, setResult] = useState<EvaluationResult | null>(null);
@@ -30,30 +30,53 @@ export default function ShrineClient() {
 
   return (
     <div className="space-y-8">
-      {/* Prayer Form */}
+      {/* Prayer Form with 3-Piece Shrine Frame */}
       {!result && (
-        <div className="bg-gray-800/50 backdrop-blur-sm rounded-lg shadow-2xl p-8 border border-gray-700">
-          <div className="text-center mb-8">
-            <div className="text-6xl mb-4">🙏</div>
-            <h2 className="text-2xl font-semibold text-yellow-400 mb-2">
-              จงขอพรจากเจ้าที่
-            </h2>
-            <p className="text-gray-400">
-              กรอกคำขอพรและวางของเซ่นไหว้เพื่อรับการประเมินจากเจ้าที่ผู้ทรงอารมณ์ขัน
-            </p>
-          </div>
-
-          <PrayerForm
-            onSubmitSuccess={handleSubmitSuccess}
-            onSubmitError={handleSubmitError}
+        <div className="max-w-2xl mx-auto">
+          {/* Shrine Top (Roof) */}
+          <div 
+            className="w-full h-24 bg-contain bg-bottom bg-no-repeat"
+            style={{ backgroundImage: "url('/shrine-top.png')" }}
           />
+          
+          {/* Shrine Middle (Body/Pillars) - Repeating */}
+          <div 
+            className="w-full bg-repeat-y bg-contain"
+            style={{ backgroundImage: "url('/shrine-mid.png')" }}
+          >
+            {/* Form Content Inside Pillars */}
+            <div className="px-8 sm:px-12 py-8">
+              {/* Header */}
+              <div className="text-center mb-8">
+                <div className="text-6xl mb-4">🙏</div>
+                <h2 className="text-2xl font-semibold text-yellow-400 mb-2">
+                  จงขอพรจากเจ้าที่
+                </h2>
+                <p className="text-gray-300">
+                  กรอกคำขอพรและวางของเซ่นไหว้เพื่อรับการประเมินจากเจ้าที่ผู้ทรงอารมณ์ขัน
+                </p>
+              </div>
 
-          {/* Error Display */}
-          {error && (
-            <div className="mt-6 bg-red-900/20 border border-red-700 rounded-lg p-4">
-              <p className="text-red-400 text-center">{error}</p>
+              {/* Prayer Form */}
+              <PrayerForm
+                onSubmitSuccess={handleSubmitSuccess}
+                onSubmitError={handleSubmitError}
+              />
+
+              {/* Error Display */}
+              {error && (
+                <div className="mt-6 bg-red-900/20 border border-red-700 rounded-lg p-4">
+                  <p className="text-red-400 text-center">{error}</p>
+                </div>
+              )}
             </div>
-          )}
+          </div>
+          
+          {/* Shrine Bottom (Base) */}
+          <div 
+            className="w-full h-16 bg-contain bg-top bg-no-repeat"
+            style={{ backgroundImage: "url('/shrine-base.png')" }}
+          />
         </div>
       )}
 
