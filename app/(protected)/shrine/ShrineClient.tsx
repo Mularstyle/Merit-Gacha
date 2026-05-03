@@ -36,14 +36,14 @@ export default function ShrineClient() {
           className="flex flex-col items-center w-full max-w-2xl mx-auto"
           style={{
             // 🎯 TUNE THESE VALUES:
-            '--shrine-top-width': '80%',
-            '--shrine-mid-width': '69.5%',
-            '--shrine-base-width': '87.7%',
+            '--shrine-top-width': '88.7%',
+            '--shrine-mid-width': '76.5%',
+            '--shrine-base-width': '95.7%',
             '--shrine-top-margin': '0%',
-            '--shrine-mid-margin': '-0.24%',
+            '--shrine-mid-margin': '-0.11%',
             '--shrine-base-margin': '-0.5%',
             '--shrine-mid-bg-position': '0%',
-            '--form-max-width-mobile': '140px',
+            '--form-max-width-mobile': '180px',
             '--form-max-width-desktop': '240px',
             '--form-padding-mobile': '1rem',
             '--form-padding-desktop': '2rem',
