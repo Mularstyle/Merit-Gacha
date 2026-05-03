@@ -14,7 +14,7 @@ const config: Config = {
         foreground: "var(--foreground)",
       },
       fontFamily: {
-        sans: ['var(--font-noto-sans-thai)', 'Arial', 'Helvetica', 'sans-serif'],
+        sans: ['var(--font-kanit)', 'Arial', 'Helvetica', 'sans-serif'],
       },
     },
   },

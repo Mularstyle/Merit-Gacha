@@ -70,7 +70,7 @@ export default function PrayerHistoryList({ userId }: PrayerHistoryListProps) {
       <div className="flex justify-center items-center py-12">
         <div className="text-center space-y-4">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-yellow-500 mx-auto"></div>
-          <p className="text-gray-400">กำลังโหลดประวัติ...</p>
+          <p className="text-yellow-400/70 font-['Charm'] text-lg">กำลังโหลดประวัติ...</p>
         </div>
       </div>
     );
@@ -79,11 +79,11 @@ export default function PrayerHistoryList({ userId }: PrayerHistoryListProps) {
   // Error state
   if (error) {
     return (
-      <div className="bg-red-900/20 border border-red-700 rounded-lg p-6 text-center">
-        <p className="text-red-400 mb-4">{error}</p>
+      <div className="bg-red-900/40 backdrop-blur-sm border-2 border-red-500/60 rounded-none p-6 text-center shadow-[0_0_25px_rgba(239,68,68,0.2)]">
+        <p className="text-red-200 mb-4 font-['Charm'] text-lg">{error}</p>
         <button
           onClick={handleRetry}
-          className="px-6 py-2 bg-red-700 hover:bg-red-600 text-white rounded-lg transition-colors"
+          className="px-6 py-2 bg-red-700/80 hover:bg-red-600 text-white rounded-none transition-all border border-red-500"
         >
           ลองอีกครั้ง
         </button>
@@ -94,11 +94,11 @@ export default function PrayerHistoryList({ userId }: PrayerHistoryListProps) {
   // Empty state
   if (prayers.length === 0) {
     return (
-      <div className="bg-gray-800/50 backdrop-blur-sm rounded-lg p-12 text-center border border-gray-700">
-        <p className="text-gray-400 text-lg">
+      <div className="bg-black/60 backdrop-blur-lg border-x-4 border-y-2 border-double border-yellow-600/50 rounded-none p-12 text-center shadow-[inset_0_0_50px_rgba(161,98,7,0.2)]">
+        <p className="text-yellow-400 text-xl font-['Charm'] mb-2">
           ยังไม่มีประวัติคำขอพร
         </p>
-        <p className="text-gray-500 mt-2">
+        <p className="text-yellow-700/70 mt-2">
           ไปที่ศาลพระภูมิเพื่อส่งคำขอพรครั้งแรกของคุณ
         </p>
       </div>
@@ -122,12 +122,18 @@ export default function PrayerHistoryList({ userId }: PrayerHistoryListProps) {
       {prayers.map((prayer) => (
         <div
           key={prayer.id}
-          className="bg-gray-800/50 backdrop-blur-sm rounded-lg p-6 border border-gray-700 hover:border-gray-600 transition-colors"
+          className="bg-black/60 backdrop-blur-lg border-x-4 border-y-2 border-double border-yellow-600/50 rounded-none shadow-[inset_0_0_50px_rgba(161,98,7,0.2)] p-6 hover:border-yellow-500/70 transition-all duration-300 relative"
         >
+          {/* Corner Ornaments */}
+          <div className="w-2 h-2 bg-gradient-to-br from-yellow-400 to-yellow-700 absolute -top-0.5 -left-0.5"></div>
+          <div className="w-2 h-2 bg-gradient-to-bl from-yellow-400 to-yellow-700 absolute -top-0.5 -right-0.5"></div>
+          <div className="w-2 h-2 bg-gradient-to-tr from-yellow-400 to-yellow-700 absolute -bottom-0.5 -left-0.5"></div>
+          <div className="w-2 h-2 bg-gradient-to-tl from-yellow-400 to-yellow-700 absolute -bottom-0.5 -right-0.5"></div>
+          
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Left column: Offering image */}
             <div className="md:col-span-1">
-              <div className="relative w-full aspect-square rounded-lg overflow-hidden bg-gray-900">
+              <div className="relative w-full aspect-square rounded-none overflow-hidden bg-black border border-yellow-700/40">
                 <Image
                   src={prayer.offering_image_url}
                   alt="ของเซ่นไหว้"
@@ -143,33 +149,33 @@ export default function PrayerHistoryList({ userId }: PrayerHistoryListProps) {
               {/* Tier badge and timestamp */}
               <div className="flex items-center justify-between">
                 <TierBadge tier={prayer.tier} size="sm" />
-                <p className="text-sm text-gray-500">
+                <p className="text-sm text-yellow-700/70">
                   {formatTimestamp(prayer.created_at)}
                 </p>
               </div>
 
               {/* Wish text */}
               <div>
-                <h3 className="text-sm font-semibold text-gray-400 mb-1">
+                <h3 className="text-sm font-semibold text-yellow-500 mb-1 font-['Charm']">
                   คำขอพร
                 </h3>
-                <p className="text-gray-200">{prayer.wish_text}</p>
+                <p className="text-yellow-100/90">{prayer.wish_text}</p>
               </div>
 
               {/* Verdict */}
               <div>
-                <h3 className="text-sm font-semibold text-gray-400 mb-1">
+                <h3 className="text-sm font-semibold text-yellow-500 mb-1 font-['Charm']">
                   คำตัดสิน
                 </h3>
-                <p className="text-yellow-400 font-medium">{prayer.verdict}</p>
+                <p className="text-yellow-300 font-medium">{prayer.verdict}</p>
               </div>
 
               {/* Comment */}
               <div>
-                <h3 className="text-sm font-semibold text-gray-400 mb-1">
+                <h3 className="text-sm font-semibold text-yellow-500 mb-1 font-['Charm']">
                   ความเห็นจากเจ้าที่
                 </h3>
-                <p className="text-gray-300 leading-relaxed">{prayer.comment}</p>
+                <p className="text-yellow-100/80 leading-relaxed">{prayer.comment}</p>
               </div>
             </div>
           </div>

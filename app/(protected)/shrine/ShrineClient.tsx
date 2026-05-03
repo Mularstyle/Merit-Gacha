@@ -131,25 +131,31 @@ export default function ShrineClient() {
               />
             </div>
           ) : (
-            // NORMAL MODE - Simple Layout with Frame
+            // NORMAL MODE - Cyber-Mutelu (Cyber-Mystical Thai Shrine)
             <div className="max-w-2xl mx-auto">
               {/* Header */}
-              <div className="text-center mb-8">
+              <div className="text-center mb-12">
                 <img 
                   src="/logo.svg" 
                   alt="Logo" 
-                  className="w-24 h-24 mx-auto mb-4"
+                  className="w-24 h-24 mx-auto mb-6 drop-shadow-[0_0_20px_rgba(234,179,8,0.6)] animate-pulse"
                 />
-                <h2 className="text-3xl font-bold text-amber-700 dark:text-yellow-400 mb-2">
+                <h2 className="font-['Charm'] text-5xl font-bold bg-gradient-to-b from-yellow-200 via-yellow-500 to-yellow-700 bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(234,179,8,0.5)] pr-4 pb-2 pt-4 leading-relaxed mb-4">
                   จงขอพรจากเจ้าที่
                 </h2>
-                <p className="text-amber-800 dark:text-gray-300 text-lg">
+                <p className="text-yellow-100/80 text-lg font-light tracking-wide">
                   กรอกคำขอพรและวางของเซ่นไหว้เพื่อรับการประเมินจากเจ้าที่ผู้ทรงอารมณ์ขัน
                 </p>
               </div>
 
-              {/* Prayer Form with Frame */}
-              <div className="bg-gradient-to-br from-amber-100 to-yellow-100 dark:from-gray-900 dark:to-gray-800 backdrop-blur-sm rounded-xl p-8 border border-amber-300 dark:border-yellow-600/30 shadow-2xl shadow-amber-500/30 dark:shadow-yellow-500/10">
+              {/* Prayer Form - The Altar Base */}
+              <div className="bg-black/60 backdrop-blur-lg border-x-4 border-y-2 border-double border-yellow-600/80 rounded-none shadow-[inset_0_0_50px_rgba(161,98,7,0.3)] p-8 relative">
+                {/* Corner Ornaments */}
+                <div className="w-3 h-3 bg-gradient-to-br from-yellow-400 to-yellow-700 absolute -top-1 -left-1"></div>
+                <div className="w-3 h-3 bg-gradient-to-bl from-yellow-400 to-yellow-700 absolute -top-1 -right-1"></div>
+                <div className="w-3 h-3 bg-gradient-to-tr from-yellow-400 to-yellow-700 absolute -bottom-1 -left-1"></div>
+                <div className="w-3 h-3 bg-gradient-to-tl from-yellow-400 to-yellow-700 absolute -bottom-1 -right-1"></div>
+                
                 <PrayerForm
                   onSubmitSuccess={handleSubmitSuccess}
                   onSubmitError={handleSubmitError}
@@ -158,8 +164,8 @@ export default function ShrineClient() {
 
               {/* Error Display */}
               {error && (
-                <div className="mt-6 bg-red-100 dark:bg-red-900/20 border border-red-400 dark:border-red-700 rounded-lg p-4">
-                  <p className="text-red-700 dark:text-red-400 text-center">{error}</p>
+                <div className="mt-6 bg-red-900/40 backdrop-blur-sm border-2 border-red-500/60 rounded-none p-4 shadow-[0_0_25px_rgba(239,68,68,0.2)]">
+                  <p className="text-red-200 text-center font-['Charm'] text-lg">{error}</p>
                 </div>
               )}
             </div>

@@ -126,37 +126,36 @@ export default function ImageUpload({
         aria-label="เลือกรูปภาพของเซ่นไหว้"
       />
 
-      {/* Upload area */}
+      {/* Upload area - Glowing Energetic Boundary */}
       <div
         onClick={handleClick}
         className={`
-          relative w-full min-h-[200px] 
-          border-2 border-dashed rounded-lg
-          cursor-pointer transition-all duration-200
-          flex items-center justify-center
+          relative flex flex-col items-center justify-center p-8 
+          border border-dashed rounded-none
+          cursor-pointer group transition-all duration-500
           ${error 
-            ? 'border-red-500 bg-red-100 dark:bg-red-500/10' 
+            ? 'border-red-500 bg-red-900/30 shadow-[0_0_25px_rgba(239,68,68,0.3)]' 
             : preview 
-            ? 'border-amber-400 dark:border-gray-600 bg-amber-50 dark:bg-gray-800/50' 
-            : 'border-amber-300 dark:border-gray-600 bg-white dark:bg-gray-800/30 hover:border-amber-400 hover:bg-amber-50 dark:hover:bg-gray-800/50'
+            ? 'border-yellow-500/50 bg-gradient-to-b from-transparent to-yellow-900/20' 
+            : 'border-yellow-500/50 bg-gradient-to-b from-transparent to-yellow-900/20 hover:bg-yellow-900/40 hover:border-yellow-400 hover:shadow-[0_0_30px_rgba(234,179,8,0.2)]'
           }
         `.trim()}
       >
         {preview ? (
           // Image preview
-          <div className="relative w-full h-full p-4">
+          <div className="relative w-full h-full">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={preview}
               alt="ตัวอย่างรูปภาพของเซ่นไหว้"
-              className="max-w-full max-h-[300px] mx-auto rounded-lg object-contain"
+              className="max-w-full max-h-[300px] mx-auto object-contain"
             />
             <button
               onClick={(e) => {
                 e.stopPropagation();
                 handleClear();
               }}
-              className="absolute top-6 right-6 bg-red-600 hover:bg-red-700 text-white rounded-full p-2 transition-colors"
+              className="absolute top-2 right-2 bg-red-700/90 hover:bg-red-600 backdrop-blur-sm text-white rounded-none p-2 transition-all shadow-[0_0_15px_rgba(239,68,68,0.4)] border border-red-500"
               aria-label="ลบรูปภาพ"
             >
               <svg
@@ -174,24 +173,16 @@ export default function ImageUpload({
             </button>
           </div>
         ) : (
-          // Upload prompt
-          <div className="text-center p-8">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-12 w-12 mx-auto mb-4 text-amber-400 dark:text-gray-500"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-              />
-            </svg>
-            <p className="text-amber-700 dark:text-gray-400 mb-2">คลิกเพื่อเลือกรูปภาพ</p>
-            <p className="text-sm text-amber-600 dark:text-gray-500">
+          // Upload prompt - Mystical Style
+          <div className="text-center">
+            {/* Mystical Symbol */}
+            <div className="text-6xl mb-4 drop-shadow-[0_0_10px_rgba(234,179,8,0.5)] group-hover:drop-shadow-[0_0_20px_rgba(234,179,8,0.7)] transition-all">
+              🕯️
+            </div>
+            <p className="text-yellow-400 group-hover:text-yellow-300 mb-2 transition-colors font-['Charm'] text-xl drop-shadow-[0_0_8px_rgba(234,179,8,0.4)]">
+              คลิกเพื่อเลือกรูปภาพ
+            </p>
+            <p className="text-sm text-yellow-700/70 group-hover:text-yellow-600/80 transition-colors">
               JPEG, PNG, WebP (สูงสุด {maxSizeMB}MB)
             </p>
           </div>
@@ -200,8 +191,8 @@ export default function ImageUpload({
 
       {/* Error message */}
       {error && (
-        <div className="mt-2 p-3 bg-red-100 dark:bg-red-500/20 border border-red-400 dark:border-red-500 rounded-lg">
-          <p className="text-red-700 dark:text-red-400 text-sm">{error}</p>
+        <div className="mt-3 p-3 bg-red-900/40 backdrop-blur-sm border-2 border-red-500/60 rounded-none shadow-[0_0_20px_rgba(239,68,68,0.2)]">
+          <p className="text-red-200 text-sm font-['Charm']">{error}</p>
         </div>
       )}
     </div>

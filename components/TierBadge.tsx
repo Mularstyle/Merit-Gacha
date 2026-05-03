@@ -16,30 +16,35 @@ interface TierBadgeProps {
 }
 
 /**
- * Tier-specific styling configuration
- * Each tier has unique gradient and shadow effects for visual distinction
+ * Tier-specific styling configuration - Cyber-Mutelu Theme
+ * Each tier has unique mystical styling with glowing effects
  */
 const tierStyles: Record<GachaTier, string> = {
-  // SSR: Gold radiance - Most sacred tier
-  SSR: 'bg-gradient-to-r from-yellow-400 to-yellow-600 shadow-lg shadow-yellow-500/50 text-yellow-900',
+  // SSR: Gold/Divine - Most sacred tier with pulsing glow
+  SSR: 'bg-yellow-900/80 border-yellow-400 text-yellow-300 shadow-[0_0_25px_rgba(250,204,21,0.8)] animate-pulse',
   
-  // SR: Silver radiance - Sacred tier
-  SR: 'bg-gradient-to-r from-gray-300 to-gray-500 shadow-lg shadow-gray-400/50 text-gray-900',
+  // SR: Silver/Holy - Sacred tier with bright glow
+  SR: 'bg-slate-800/80 border-slate-300 text-slate-100 shadow-[0_0_20px_rgba(203,213,225,0.6)]',
   
-  // R: Copper radiance - Regular tier
-  R: 'bg-gradient-to-r from-orange-400 to-orange-600 shadow-lg shadow-orange-500/50 text-orange-900',
+  // R: Bronze/Copper - Regular tier with warm glow
+  R: 'bg-orange-950/80 border-orange-700 text-orange-300 shadow-[0_0_15px_rgba(194,65,12,0.4)]',
   
-  // เกลือ: Dark radiance - Worthless tier
-  เกลือ: 'bg-gradient-to-r from-gray-700 to-gray-900 shadow-lg shadow-gray-800/50 text-gray-300',
+  // เกลือ: Salt/Cursed - Worthless tier with dark aura
+  เกลือ: 'bg-black/80 border-gray-700 text-gray-500 shadow-[0_0_10px_rgba(75,85,99,0.2)]',
 };
 
 /**
- * Size variant styling configuration
+ * Base badge styling - Cyber-Mutelu angular style
+ */
+const baseStyle = 'px-3 py-1 font-bold text-sm tracking-widest uppercase border-2 rounded-none backdrop-blur-sm';
+
+/**
+ * Size variant styling configuration (removed from base, kept for backward compatibility)
  */
 const sizeStyles = {
-  sm: 'px-2 py-1 text-xs',
-  md: 'px-4 py-2 text-sm',
-  lg: 'px-6 py-3 text-lg',
+  sm: '',
+  md: '',
+  lg: 'px-4 py-2 text-base',
 };
 
 export default function TierBadge({ tier, size = 'md' }: TierBadgeProps) {
@@ -50,8 +55,8 @@ export default function TierBadge({ tier, size = 'md' }: TierBadgeProps) {
     <div
       className={`
         inline-flex items-center justify-center
-        font-bold rounded-lg
         transition-all duration-300
+        ${baseStyle}
         ${tierStyle}
         ${sizeStyle}
       `.trim()}

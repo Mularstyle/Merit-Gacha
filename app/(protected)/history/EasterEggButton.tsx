@@ -31,7 +31,7 @@ export default function EasterEggButton() {
   return (
     <button
       onClick={toggleShrineMode}
-      className="px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-medium rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 text-sm"
+      className="flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-yellow-900 via-yellow-700 to-yellow-900 border border-yellow-500 text-yellow-50 hover:from-yellow-700 hover:via-yellow-500 hover:to-yellow-700 hover:shadow-[0_0_15px_rgba(234,179,8,0.5)] transition-all duration-300 rounded-none font-serif tracking-wider"
       title={shrineMode ? 'ปิดโหมดศาลพระภูมิ' : 'เปิดโหมดศาลพระภูมิ'}
     >
       {shrineMode ? '🏛️ ปิดศาล' : '🏛️ เปิดศาล'}

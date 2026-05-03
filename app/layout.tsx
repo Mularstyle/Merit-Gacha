@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Noto_Sans_Thai } from "next/font/google";
+import { Kanit } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 
-const notoSansThai = Noto_Sans_Thai({
+const kanit = Kanit({
   subsets: ["thai", "latin"],
   weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-noto-sans-thai",
+  variable: "--font-kanit",
   display: "swap",
 });
 
@@ -23,6 +23,7 @@ export default function RootLayout({
   return (
     <html lang="th" suppressHydrationWarning>
       <head>
+        <link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&display=swap" rel="stylesheet" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -39,7 +40,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${notoSansThai.variable} font-sans antialiased min-h-screen`}
+        className={`${kanit.variable} font-sans antialiased min-h-screen`}
       >
         <Navigation />
         <main>{children}</main>

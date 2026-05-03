@@ -42,11 +42,11 @@ export default function LogoutButton() {
     <button
       onClick={handleLogout}
       disabled={isLoading}
-      className="flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
+      className="flex items-center gap-2 px-4 py-2 bg-black/60 border border-red-900/50 text-red-500/80 hover:bg-red-950/40 hover:text-red-400 hover:border-red-700 hover:shadow-[0_0_15px_rgba(185,28,28,0.3)] transition-all duration-300 rounded-none font-serif disabled:opacity-50 disabled:cursor-not-allowed"
     >
       {isLoading ? (
         <>
-          <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+          <div className="w-4 h-4 border-2 border-red-500 border-t-transparent rounded-full animate-spin" />
           <span className="hidden sm:inline">กำลังออกจากระบบ...</span>
         </>
       ) : (

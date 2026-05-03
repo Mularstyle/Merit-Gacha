@@ -112,23 +112,23 @@ export default function PrayerForm({
     <form onSubmit={handleSubmit} className="space-y-6">
       {/* Network error message with retry button */}
       {networkError && (
-        <div className="bg-red-100 dark:bg-red-900/20 border border-red-400 dark:border-red-700 rounded-lg p-4">
-          <p className="text-red-700 dark:text-red-400 mb-3">{networkError}</p>
+        <div className="bg-red-900/40 backdrop-blur-sm border-2 border-red-500/60 rounded-none p-4 shadow-[0_0_25px_rgba(239,68,68,0.2)] mb-6">
+          <p className="text-red-200 mb-3 font-['Charm'] text-lg">{networkError}</p>
           <button
             type="button"
             onClick={handleRetry}
-            className="px-4 py-2 bg-red-600 hover:bg-red-500 dark:bg-red-700 dark:hover:bg-red-600 text-white rounded-lg transition-colors"
+            className="px-4 py-2 bg-red-700/80 hover:bg-red-600 backdrop-blur-sm text-white rounded-none transition-all shadow-[0_0_15px_rgba(239,68,68,0.3)] border border-red-500"
           >
             ลองอีกครั้ง
           </button>
         </div>
       )}
 
-      {/* Wish text input */}
-      <div>
+      {/* Wish text input - Dark Scroll */}
+      <div className="mb-8">
         <label
           htmlFor="wish"
-          className="block text-lg font-medium text-amber-700 dark:text-yellow-400 mb-2"
+          className="block text-lg font-medium text-yellow-400 mb-4 font-['Charm'] text-2xl"
         >
           ท่านต้องการสิ่งใด?
         </label>
@@ -137,7 +137,7 @@ export default function PrayerForm({
           value={wish}
           onChange={(e) => setWish(e.target.value)}
           disabled={isSubmitting}
-          className="w-full px-4 py-3 bg-white dark:bg-gray-900 border border-amber-300 dark:border-gray-700 rounded-lg text-gray-900 dark:text-gray-100 placeholder-amber-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-amber-500 dark:focus:ring-yellow-500 focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed resize-none"
+          className="w-full bg-black/40 border-b-2 border-t-0 border-x-0 border-yellow-700/50 rounded-none px-4 py-3 focus:outline-none focus:border-yellow-400 focus:shadow-[0_4px_15px_-3px_rgba(234,179,8,0.3)] transition-all text-yellow-100 placeholder-yellow-900/50 font-serif disabled:opacity-50 disabled:cursor-not-allowed resize-none"
           placeholder="กรุณาระบุคำขอพรของท่าน..."
           rows={4}
           aria-label="คำขอพร"
@@ -145,8 +145,8 @@ export default function PrayerForm({
       </div>
 
       {/* Offering image upload */}
-      <div>
-        <label className="block text-lg font-medium text-amber-700 dark:text-yellow-400 mb-2">
+      <div className="mb-8">
+        <label className="block text-lg font-medium text-yellow-400 mb-4 font-['Charm'] text-2xl">
           จงวางของเซ่นไหว้ลงตรงนี้
         </label>
         <ImageUpload
@@ -156,17 +156,17 @@ export default function PrayerForm({
         />
       </div>
 
-      {/* Submit button */}
-      <div className="flex justify-center">
+      {/* Submit button - Golden Plaque */}
+      <div>
         <button
           type="submit"
           disabled={!isFormValid || isSubmitting}
           className={`
-            px-8 py-3 rounded-lg font-bold text-lg transition-all duration-200
+            w-full px-6 py-3 border-2 font-bold tracking-widest uppercase transition-all duration-300 transform
             ${
               isFormValid && !isSubmitting
-                ? 'bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-gray-900 shadow-lg shadow-yellow-500/50 hover:shadow-yellow-500/70 transform hover:scale-105'
-                : 'bg-gray-300 dark:bg-gray-700 text-gray-500 cursor-not-allowed'
+                ? 'bg-gradient-to-r from-yellow-800 via-yellow-600 to-yellow-800 border-yellow-500 text-white hover:from-yellow-700 hover:via-yellow-500 hover:to-yellow-700 hover:shadow-[0_0_20px_rgba(234,179,8,0.6)] hover:scale-[1.02]'
+                : 'bg-gray-800/50 border-gray-700 text-gray-600 cursor-not-allowed'
             }
           `.trim()}
           aria-label="ส่งคำขอพร"
