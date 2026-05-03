@@ -36,15 +36,15 @@ export default function ShrineClient() {
           className="flex flex-col items-center w-full max-w-2xl mx-auto"
           style={{
             // 🎯 TUNE THESE VALUES:
-            '--shrine-top-width': '88.7%',
-            '--shrine-mid-width': '76.5%',
-            '--shrine-base-width': '95.7%',
-            '--shrine-top-margin': '0%',
+            '--shrine-top-width': '91.9%',
+            '--shrine-mid-width': '79.5%',
+            '--shrine-base-width': '100%',
+            '--shrine-top-margin': '0.15%',
             '--shrine-mid-margin': '-0.11%',
             '--shrine-base-margin': '-0.5%',
             '--shrine-mid-bg-position': '0%',
             '--form-max-width-mobile': '180px',
-            '--form-max-width-desktop': '240px',
+            '--form-max-width-desktop': '270px',
             '--form-padding-mobile': '1rem',
             '--form-padding-desktop': '2rem',
           } as React.CSSProperties}
