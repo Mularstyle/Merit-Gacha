@@ -83,7 +83,7 @@ export default function ResultDisplay({ result }: ResultDisplayProps) {
         {/* Comment */}
         <div className="bg-gray-800/50 backdrop-blur-sm rounded-lg p-6 border border-gray-700">
           <h3 className="text-sm font-semibold text-gray-400 mb-2">
-            ความเห็นจากเทพเจ้า
+            ความเห็นจากเจ้าที่
           </h3>
           <p className="text-lg text-gray-200 leading-relaxed">
             {result.comment}

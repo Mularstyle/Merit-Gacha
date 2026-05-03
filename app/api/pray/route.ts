@@ -178,7 +178,7 @@ export async function POST(request: NextRequest) {
         return NextResponse.json<ApiResponse<never>>(
           {
             success: false,
-            error: 'เทพเจ้าไม่ตอบสนอง กรุณาลองใหม่ภายหลัง', // "Deity not responding, please try again later"
+            error: 'เจ้าที่ไม่ตอบสนอง กรุณาลองใหม่ภายหลัง', // "Deity not responding, please try again later"
           },
           { status: 504 }
         );

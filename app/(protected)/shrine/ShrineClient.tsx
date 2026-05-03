@@ -36,10 +36,10 @@ export default function ShrineClient() {
           <div className="text-center mb-8">
             <div className="text-6xl mb-4">🙏</div>
             <h2 className="text-2xl font-semibold text-yellow-400 mb-2">
-              จงขอพรจากเทพเจ้า
+              จงขอพรจากเจ้าที่
             </h2>
             <p className="text-gray-400">
-              กรอกคำขอพรและวางของเซ่นไหว้เพื่อรับการประเมินจากเทพเจ้าผู้ทรงอารมณ์ขัน
+              กรอกคำขอพรและวางของเซ่นไหว้เพื่อรับการประเมินจากเจ้าที่ผู้ทรงอารมณ์ขัน
             </p>
           </div>
 

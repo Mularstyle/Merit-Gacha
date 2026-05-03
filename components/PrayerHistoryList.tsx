@@ -99,7 +99,7 @@ export default function PrayerHistoryList({ userId }: PrayerHistoryListProps) {
           ยังไม่มีประวัติคำขอพร
         </p>
         <p className="text-gray-500 mt-2">
-          ไปที่ศาลเจ้าเพื่อส่งคำขอพรครั้งแรกของคุณ
+          ไปที่ศาลพระภูมิเพื่อส่งคำขอพรครั้งแรกของคุณ
         </p>
       </div>
     );
@@ -167,7 +167,7 @@ export default function PrayerHistoryList({ userId }: PrayerHistoryListProps) {
               {/* Comment */}
               <div>
                 <h3 className="text-sm font-semibold text-gray-400 mb-1">
-                  ความเห็นจากเทพเจ้า
+                  ความเห็นจากเจ้าที่
                 </h3>
                 <p className="text-gray-300 leading-relaxed">{prayer.comment}</p>
               </div>

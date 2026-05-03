@@ -57,7 +57,7 @@ export default function LoginPage() {
             Merit Gacha
           </p>
           <p className="text-gray-400 text-sm mt-2">
-            จงเข้ามาขอพรจากเทพเจ้าผู้ทรงอารมณ์ขัน
+            จงเข้ามาขอพรจากเจ้าที่ผู้ทรงอารมณ์ขัน
           </p>
         </div>
 
