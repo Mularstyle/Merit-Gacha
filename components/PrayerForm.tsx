@@ -112,12 +112,12 @@ export default function PrayerForm({
     <form onSubmit={handleSubmit} className="space-y-6">
       {/* Network error message with retry button */}
       {networkError && (
-        <div className="bg-red-900/20 border border-red-700 rounded-lg p-4">
-          <p className="text-red-400 mb-3">{networkError}</p>
+        <div className="bg-red-100 dark:bg-red-900/20 border border-red-400 dark:border-red-700 rounded-lg p-4">
+          <p className="text-red-700 dark:text-red-400 mb-3">{networkError}</p>
           <button
             type="button"
             onClick={handleRetry}
-            className="px-4 py-2 bg-red-700 hover:bg-red-600 text-white rounded-lg transition-colors"
+            className="px-4 py-2 bg-red-600 hover:bg-red-500 dark:bg-red-700 dark:hover:bg-red-600 text-white rounded-lg transition-colors"
           >
             ลองอีกครั้ง
           </button>
@@ -128,7 +128,7 @@ export default function PrayerForm({
       <div>
         <label
           htmlFor="wish"
-          className="block text-lg font-medium text-yellow-400 mb-2"
+          className="block text-lg font-medium text-amber-700 dark:text-yellow-400 mb-2"
         >
           ท่านต้องการสิ่งใด?
         </label>
@@ -137,7 +137,7 @@ export default function PrayerForm({
           value={wish}
           onChange={(e) => setWish(e.target.value)}
           disabled={isSubmitting}
-          className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed resize-none"
+          className="w-full px-4 py-3 bg-white dark:bg-gray-900 border border-amber-300 dark:border-gray-700 rounded-lg text-gray-900 dark:text-gray-100 placeholder-amber-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-amber-500 dark:focus:ring-yellow-500 focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed resize-none"
           placeholder="กรุณาระบุคำขอพรของท่าน..."
           rows={4}
           aria-label="คำขอพร"
@@ -146,7 +146,7 @@ export default function PrayerForm({
 
       {/* Offering image upload */}
       <div>
-        <label className="block text-lg font-medium text-yellow-400 mb-2">
+        <label className="block text-lg font-medium text-amber-700 dark:text-yellow-400 mb-2">
           จงวางของเซ่นไหว้ลงตรงนี้
         </label>
         <ImageUpload
@@ -166,7 +166,7 @@ export default function PrayerForm({
             ${
               isFormValid && !isSubmitting
                 ? 'bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-gray-900 shadow-lg shadow-yellow-500/50 hover:shadow-yellow-500/70 transform hover:scale-105'
-                : 'bg-gray-700 text-gray-500 cursor-not-allowed'
+                : 'bg-gray-300 dark:bg-gray-700 text-gray-500 cursor-not-allowed'
             }
           `.trim()}
           aria-label="ส่งคำขอพร"

@@ -90,7 +90,11 @@ export default function ShrineClient() {
                 <div className="w-full max-w-[var(--form-max-width-mobile)] sm:max-w-[var(--form-max-width-desktop)]">
                   {/* Header */}
                   <div className="text-center mb-8">
-                    <div className="text-6xl mb-4">🙏</div>
+                    <img 
+                      src="/logo.svg" 
+                      alt="Logo" 
+                      className="w-20 h-20 mx-auto mb-4"
+                    />
                     <h2 className="text-2xl font-semibold text-yellow-400 mb-2">
                       จงขอพรจากเจ้าที่
                     </h2>
@@ -131,17 +135,21 @@ export default function ShrineClient() {
             <div className="max-w-2xl mx-auto">
               {/* Header */}
               <div className="text-center mb-8">
-                <div className="text-6xl mb-4">🙏</div>
-                <h2 className="text-3xl font-bold text-yellow-400 mb-2">
+                <img 
+                  src="/logo.svg" 
+                  alt="Logo" 
+                  className="w-24 h-24 mx-auto mb-4"
+                />
+                <h2 className="text-3xl font-bold text-amber-700 dark:text-yellow-400 mb-2">
                   จงขอพรจากเจ้าที่
                 </h2>
-                <p className="text-gray-300 text-lg">
+                <p className="text-amber-800 dark:text-gray-300 text-lg">
                   กรอกคำขอพรและวางของเซ่นไหว้เพื่อรับการประเมินจากเจ้าที่ผู้ทรงอารมณ์ขัน
                 </p>
               </div>
 
               {/* Prayer Form with Frame */}
-              <div className="bg-gray-900/80 backdrop-blur-sm rounded-xl p-8 border border-yellow-600/30 shadow-2xl shadow-yellow-500/10">
+              <div className="bg-gradient-to-br from-amber-100 to-yellow-100 dark:from-gray-900 dark:to-gray-800 backdrop-blur-sm rounded-xl p-8 border border-amber-300 dark:border-yellow-600/30 shadow-2xl shadow-amber-500/30 dark:shadow-yellow-500/10">
                 <PrayerForm
                   onSubmitSuccess={handleSubmitSuccess}
                   onSubmitError={handleSubmitError}
@@ -150,8 +158,8 @@ export default function ShrineClient() {
 
               {/* Error Display */}
               {error && (
-                <div className="mt-6 bg-red-900/20 border border-red-700 rounded-lg p-4">
-                  <p className="text-red-400 text-center">{error}</p>
+                <div className="mt-6 bg-red-100 dark:bg-red-900/20 border border-red-400 dark:border-red-700 rounded-lg p-4">
+                  <p className="text-red-700 dark:text-red-400 text-center">{error}</p>
                 </div>
               )}
             </div>

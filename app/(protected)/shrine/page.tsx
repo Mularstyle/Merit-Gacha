@@ -20,7 +20,7 @@ export default async function ShrinePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-black p-8">
+    <div className="min-h-screen bg-gradient-to-b from-amber-50 via-orange-50 to-yellow-50 dark:from-gray-900 dark:via-gray-800 dark:to-black p-8">
       <div className="max-w-4xl mx-auto">
         <ShrineClient />
       </div>

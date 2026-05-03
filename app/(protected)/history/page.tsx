@@ -22,11 +22,11 @@ export default async function HistoryPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-black p-8">
+    <div className="min-h-screen bg-gradient-to-b from-amber-50 via-orange-50 to-yellow-50 dark:from-gray-900 dark:via-gray-800 dark:to-black p-8">
       <div className="max-w-6xl mx-auto">
         {/* Header with Easter Egg Button */}
         <div className="mb-8 flex items-center justify-between">
-          <h1 className="text-4xl font-bold text-yellow-400">
+          <h1 className="text-4xl font-bold text-yellow-600 dark:text-yellow-400">
             ประวัติคำขอพร
           </h1>
           <EasterEggButton />

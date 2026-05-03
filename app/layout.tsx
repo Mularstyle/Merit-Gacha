@@ -21,9 +21,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="th" className="dark">
+    <html lang="th" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                const theme = localStorage.getItem('theme');
+                if (theme === 'light') {
+                  document.documentElement.classList.remove('dark');
+                } else {
+                  document.documentElement.classList.add('dark');
+                }
+              })();
+            `,
+          }}
+        />
+      </head>
       <body
-        className={`${notoSansThai.variable} font-sans antialiased bg-gradient-to-b from-gray-900 via-gray-800 to-black text-gray-100 min-h-screen`}
+        className={`${notoSansThai.variable} font-sans antialiased min-h-screen`}
       >
         <Navigation />
         <main>{children}</main>

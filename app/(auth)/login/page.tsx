@@ -64,7 +64,11 @@ export default function LoginPage() {
         {/* Login Card */}
         <div className="bg-gray-800 rounded-lg shadow-2xl p-8 border border-gray-700">
           <div className="text-center mb-6">
-            <div className="text-6xl mb-4">🙏</div>
+            <img 
+              src="/logo.svg" 
+              alt="Logo" 
+              className="w-20 h-20 mx-auto mb-4"
+            />
             <h2 className="text-2xl font-semibold text-gray-100 mb-2">
               เข้าสู่ระบบ
             </h2>
