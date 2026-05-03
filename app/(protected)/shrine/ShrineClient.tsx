@@ -32,20 +32,49 @@ export default function ShrineClient() {
     <div className="space-y-8">
       {/* Prayer Form with 3-Piece Shrine Frame */}
       {!result && (
-        <div className="max-w-2xl mx-auto">
-          {/* Shrine Top (Roof) */}
-          <div 
-            className="w-full h-24 bg-contain bg-bottom bg-no-repeat"
-            style={{ backgroundImage: "url('/shrine-top.png')" }}
+        <div 
+          className="flex flex-col items-center w-full max-w-2xl mx-auto"
+          style={{
+            // 🎯 TUNE THESE VALUES:
+            '--shrine-top-width': '80%',
+            '--shrine-mid-width': '69.5%',
+            '--shrine-base-width': '87.7%',
+            '--shrine-top-margin': '0%',
+            '--shrine-mid-margin': '-0.24%',
+            '--shrine-base-margin': '-0.5%',
+            '--shrine-mid-bg-position': '0%',
+            '--form-max-width-mobile': '140px',
+            '--form-max-width-desktop': '240px',
+            '--form-padding-mobile': '1rem',
+            '--form-padding-desktop': '2rem',
+          } as React.CSSProperties}
+        >
+          {/* 1. TOP SECTION (ROOF) */}
+          <img 
+            src="/shrine-top.png" 
+            alt="Shrine Roof" 
+            className="h-auto block"
+            style={{ 
+              width: 'var(--shrine-top-width)',
+              marginLeft: 'var(--shrine-top-margin)'
+            }}
           />
-          
-          {/* Shrine Middle (Body/Pillars) - Repeating */}
+
+          {/* 2. MIDDLE SECTION (PILLARS) - THE FORM LIVES INSIDE HERE */}
           <div 
-            className="w-full bg-repeat-y bg-contain"
-            style={{ backgroundImage: "url('/shrine-mid.png')" }}
+            className="bg-[url('/shrine-mid.png')] bg-[length:100%_auto] bg-repeat-y flex flex-col items-center"
+            style={{ 
+              width: 'var(--shrine-mid-width)',
+              backgroundPosition: 'var(--shrine-mid-bg-position) top',
+              marginLeft: 'var(--shrine-mid-margin)',
+              paddingLeft: 'var(--form-padding-mobile)',
+              paddingRight: 'var(--form-padding-mobile)',
+              paddingTop: '1rem',
+              paddingBottom: '1rem',
+            }}
           >
-            {/* Form Content Inside Pillars */}
-            <div className="px-8 sm:px-12 py-8">
+            {/* --- FORM UI INSIDE MIDDLE SECTION --- */}
+            <div className="w-full max-w-[var(--form-max-width-mobile)] sm:max-w-[var(--form-max-width-desktop)]">
               {/* Header */}
               <div className="text-center mb-8">
                 <div className="text-6xl mb-4">🙏</div>
@@ -70,12 +99,18 @@ export default function ShrineClient() {
                 </div>
               )}
             </div>
+            {/* --- END OF FORM UI --- */}
           </div>
-          
-          {/* Shrine Bottom (Base) */}
-          <div 
-            className="w-full h-16 bg-contain bg-top bg-no-repeat"
-            style={{ backgroundImage: "url('/shrine-base.png')" }}
+
+          {/* 3. BOTTOM SECTION (BASE) */}
+          <img 
+            src="/shrine-base.png" 
+            alt="Shrine Base" 
+            className="h-auto block"
+            style={{ 
+              width: 'var(--shrine-base-width)',
+              marginLeft: 'var(--shrine-base-margin)'
+            }}
           />
         </div>
       )}
